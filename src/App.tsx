@@ -1,6 +1,7 @@
 import { useState } from "react";
 import StudentForm from "./components/StudentForm";
 import StudentList from "./components/StudentList";
+import "./App.css";
 
 function App() {
   const [refreshKey, setRefreshKey] = useState(0);
@@ -10,13 +11,27 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Student Management System</h1>
+    <div className="app-container">
+      <header className="header">
+        <h1>Student Management System</h1>
+        <p>Manage your students efficiently and effectively</p>
+      </header>
 
-      <StudentForm onStudentAdded={handleStudentAdded} />
-      <StudentList refreshKey={refreshKey} />
+      <div style={{ display: 'grid', gap: '2rem' }}>
+        <section>
+          <StudentForm onStudentAdded={handleStudentAdded} />
+        </section>
+
+        <section>
+          <StudentList refreshKey={refreshKey} />
+        </section>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+
+
